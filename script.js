@@ -1,6 +1,7 @@
 const paginationBullets = document.getElementsByClassName("bullet");
 const sections = document.getElementsByClassName("section");
 
+/* ========== Pagination ========== */
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -10,7 +11,6 @@ function isInViewport(element) {
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
-
 function setPagination(){
     for(let i = 0;i < sections.length; i++){
         const isShown = isInViewport(sections[i]);
@@ -26,7 +26,62 @@ function setPagination(){
         paginationBullets[0].classList.add("active");
     }
 }
-
 setPagination();
-
 window.onscroll = setPagination;
+
+/* ========== Slider ========== */
+var swiper = new Swiper(".swiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    fade: 'true',
+    grabCursor: 'true',
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints:{
+        0: {
+            slidesPerView: 1,
+        },
+        650: {
+            slidesPerView: 2,
+        },
+        950: {
+            slidesPerView: 3,
+        },
+    },
+});
+
+var verticalSwiper = new Swiper(".verticalSwiper", {
+    slidesPerView: 6,
+    spaceBetween: 20,
+    fade: 'true',
+    grabCursor: 'true',
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints:{
+        0: {
+            slidesPerView: 3,
+        },
+        650: {
+            slidesPerView: 4,
+        },
+        950: {
+            slidesPerView: 6,
+        },
+    },
+});
