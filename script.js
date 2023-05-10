@@ -2,15 +2,15 @@ const paginationBullets = document.getElementsByClassName("bullet");
 const sections = document.querySelectorAll(".section");
 
 /* ========== Pagination ========== */
-function isInViewport(element) {
+/* function isInViewport(element) {
   const rect = element.getBoundingClientRect();
   return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <=
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
       (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
 }
 function setPagination() {
   for (let i = 0; i < sections.length; i++) {
@@ -28,7 +28,18 @@ function setPagination() {
   }
 }
 setPagination();
-window.onscroll = setPagination;
+window.onscroll = setPagination; */
+
+for (let i = 0; i < paginationBullets.length; i++) {
+  paginationBullets[i].addEventListener("click", () => {
+    for (let j = 0; j < paginationBullets.length; j++) {
+      if (paginationBullets[j].classList.contains("active")) {
+        paginationBullets[j].classList.remove("active");
+      }
+      paginationBullets[i].classList.add("active");
+    }
+  });
+}
 
 /* ========== Slider ========== */
 var swiper = new Swiper(".slide-content", {
