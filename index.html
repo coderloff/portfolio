@@ -18,14 +18,25 @@
       <button class="menu-button">
         <i class="fa-regular fa-bars-staggered"></i>
       </button>
-      <div class="menu"></div>
+      <div class="menu">
+        <button class="close-button">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="links">
+          <a href="#main">Home</a>
+          <a href="#gamedevelopment">Game Development</a>
+          <a href="#webdevelopment">Web Development</a>
+          <a href="#skills">My Skills</a>
+          <a href="#contact">Send Me A Message</a>
+        </div>
+      </div>
     </header>
     <div class="pagination">
       <a class="bullet active" href="#main"><i></i></a>
       <a class="bullet" href="#gamedevelopment"><i></i></a>
       <a class="bullet" href="#webdevelopment"><i></i></a>
-      <a class="bullet"><i></i></a>
-      <a class="bullet"><i></i></a>
+      <a class="bullet" href="#skills"><i></i></a>
+      <a class="bullet" href="#contact"><i></i></a>
     </div>
     <main id="main" class="section">
       <div class="modules">
@@ -533,6 +544,103 @@
         </div>
       </div>
     </section>
+    <section class="skills-section section" id="skills">
+      <h1 class="title">MY <span>SKILLS:</span></h1>
+      <div class="skills project">
+        <div class="card" style="background-image: url(assets/Skills/HTML.png)">
+          <div class="gradient-cover"></div>
+          <h2 class="skill-name">HTML</h2>
+          <div class="about">
+            <h3>About</h3>
+            <p>
+              The HyperText Markup Language or HTML is the standard markup
+              language for documents designed to be displayed in a web browser
+            </p>
+          </div>
+        </div>
+        <div class="card" style="background-image: url(assets/Skills/CSS.png)">
+          <div class="gradient-cover"></div>
+          <h2 class="skill-name">CSS</h2>
+          <div class="about">
+            <h3>About</h3>
+            <p>
+              Cascading Style Sheets (CSS) is a stylesheet language used to
+              describe the presentation of a document written in HTML or XML
+            </p>
+          </div>
+        </div>
+        <div class="card" style="background-image: url(assets/Skills/JS.png)">
+          <div class="gradient-cover"></div>
+          <h2 class="skill-name">JS</h2>
+          <div class="about">
+            <h3>About</h3>
+            <p>
+              JavaScript is a programming language that is one of the core
+              technologies of the World Wide Web, alongside HTML and CSS
+            </p>
+          </div>
+        </div>
+        <div
+          class="card"
+          style="background-image: url(assets/Skills/React.png)"
+        >
+          <div class="gradient-cover"></div>
+          <h2 class="skill-name">REACT</h2>
+          <div class="about">
+            <h3>About</h3>
+            <p>
+              React is a free and open-source front-end JavaScript library for
+              building user interfaces based on components
+            </p>
+          </div>
+        </div>
+        <div
+          class="card"
+          style="background-image: url(assets/Skills/C-sharp.png)"
+        >
+          <div class="gradient-cover"></div>
+          <h2 class="skill-name">C#</h2>
+          <div class="about">
+            <h3>About</h3>
+            <p>
+              C# is a programming language that enables developers to build
+              applications that run on the .NET platform.
+            </p>
+          </div>
+        </div>
+        <div class="card" style="background-image: url(assets/Skills/Cpp.png)">
+          <div class="gradient-cover"></div>
+          <h2 class="skill-name">C++</h2>
+          <div class="about">
+            <h3>About</h3>
+            <p>
+              C++ is a programming language that is viewed by many as the best
+              language for creating large-scale applications
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact section" id="contact">
+      <h1 class="title">SEND <span>ME</span> A MESSAGE:</h1>
+      <form
+        action="https://formspree.io/f/xrgvdgpo"
+        method="POST"
+        id="form"
+      >
+        <input type="name" placeholder="Name" name="name" required />
+        <input type="email" placeholder="E-mail" name="email" required />
+        <input type="text" placeholder="Topic" name="topic" required />
+        <textarea placeholder="Message" name="message" required></textarea>
+        <button class="submit" type="submit">Send</button>
+        <div class="status error" id="status"></div>
+      </form>
+    </section>
+
+    <div class="attribution">
+      <a>© 2023 Mr.Ismayilovh | All Rights Reserved</a>
+      <span class="bar"></span>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>

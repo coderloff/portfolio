@@ -1,306 +1,531 @@
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500;600;700&display=swap");
 @import url("https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css");
 @import url("https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css");
-:root{
-    --background: #030303;
-    --text: #fefefe;
-    --lime-green: #44cc88;
-    --green: #16ff00;
-    --dark-green: #38ac2d;
-    --gray: #1e1e1e;
-    --swiper-theme-color: #38ac2d;
+:root {
+  --background: #030303;
+  --text: #fefefe;
+  --lime-green: #44cc88;
+  --green: #16ff00;
+  --red: #ff2244;
+  --dark-green: #38ac2d;
+  --gray: #1e1e1e;
+  --swiper-theme-color: #38ac2d;
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
-body{
-    font-family: 'Maven Pro', sans-serif;
-    background: var(--background);
-    color: var(--text);
-    padding: 32px 50px;
+body {
+  font-family: "Maven Pro", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  padding: 32px 50px;
 }
-body::-webkit-scrollbar{
-    width: 10px;
-    background: none;
+body::-webkit-scrollbar {
+  width: 10px;
+  background: none;
 }
-body::-webkit-scrollbar-thumb{
-    background: var(--dark-green);
+body::-webkit-scrollbar-thumb {
+  background: var(--dark-green);
 }
-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-header .menu-button{
-    color: var(--text);
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+header .menu-button {
+  color: var(--text);
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
-header .menu-button:hover{
-    color: var(--dark-green);
+header .menu-button:hover {
+  color: var(--dark-green);
 }
-header .menu-button i{
-    font-family: "Font Awesome 6 Sharp" !important;
+header .menu-button i {
+  font-family: "Font Awesome 6 Sharp" !important;
 }
-header .menu{
-    position: fixed;
+header .menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  padding-right: 30px;
+  background: var(--dark-green);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.2s ease;
 }
-.pagination{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    right: 50px;
-    top: 40vh;
-    color: var(--dark-green);
-    z-index: 10;
+header .menu.active {
+  opacity: 1;
+  z-index: 3;
 }
-.pagination .bullet{
-    position: relative;
-    width: 10px;
-    height: 10px;
-    border: 2px solid var(--dark-green);
-    border-radius: 50%;
-    list-style: none;
-    cursor: pointer;
+header .menu .close-button {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: var(--background);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
-.pagination .bullet:hover{
-    background: var(--dark-green);
+header .menu .close-button:hover {
+  color: var(--red);
 }
-.pagination .bullet.active{
-    background: var(--dark-green);
+header .menu .links {
+  height: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  flex-direction: column;
 }
-.pagination .bullet.active > i{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: -7px;
-    top: -7px;
-    border: 2px solid rgba(56, 172, 45, 0.5);
-    border-radius: 50%;
+header .menu .links a {
+  font-size: 26px;
+  text-decoration: none;
+  color: var(--background);
+  transition: all 0.2s ease-in;
 }
-main{
-    position: relative;
-    padding: 140px 0 80px 0;
+header .menu .links a:not(:last-child) {
+  margin-bottom: 20px;
 }
-main .bar{
-    width: 40px;
-    height: 4px;
-    background: var(--dark-green);
-    position: absolute;
-    left: -50px;
-    top: 153px;
+header .menu .links a:hover {
+  color: var(--text);
 }
-main .frame{
-    position: absolute;
-    height: 100%;
-    width: 240px;
-    top: 0;
-    left: 470px;
-    border: 4px solid var(--dark-green);
-    z-index: -10;
+.pagination {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  right: 50px;
+  top: 40vh;
+  color: var(--dark-green);
+  z-index: 2;
 }
-main .frame::before{
-    content: "";
-    position: absolute;
-    left: -4px;
-    top: 186px;
-    display: block;
-    width: 4px;
-    height: 60px;
-    background: var(--background);
+.pagination .bullet {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--dark-green);
+  border-radius: 50%;
+  list-style: none;
+  cursor: pointer;
 }
-main .modules{
-    display: flex;
-    flex-direction: column;
+.pagination .bullet:hover {
+  background: var(--dark-green);
 }
-main .title{
-    font-size: 24px;
-    margin-bottom: 20px;
+.pagination .bullet.active {
+  background: var(--dark-green);
 }
-main .about{
-    font-size: 50px;
-    margin-bottom: 28px;
+.pagination .bullet.active > i {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: -7px;
+  top: -7px;
+  border: 2px solid rgba(56, 172, 45, 0.5);
+  border-radius: 50%;
 }
-main p{
-    font-size: 14px;
-    margin-bottom: 30px;
+main {
+  position: relative;
+  padding: 140px 0 80px 0;
 }
-main .links{
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
+main .bar {
+  width: 40px;
+  height: 4px;
+  background: var(--dark-green);
+  position: absolute;
+  left: -50px;
+  top: 153px;
 }
-main .links a{
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: var(--text);
-    border: 3px solid var(--gray);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.2s ease;
+main .frame {
+  position: absolute;
+  height: 100%;
+  width: 240px;
+  top: 0;
+  left: 470px;
+  border: 4px solid var(--dark-green);
+  z-index: -10;
 }
-main .links a:hover{
-    background: var(--dark-green);
-    border: 3px solid var(--dark-green);
-    color: var(--background);
+main .frame::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 186px;
+  display: block;
+  width: 4px;
+  height: 60px;
+  background: var(--background);
 }
-.auto-type{
-    color: var(--dark-green);
+main .modules {
+  display: flex;
+  flex-direction: column;
 }
-main .buttons .button{
-    color: var(--text);
-    list-style: none;
+main .title {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
-.mouse-scroll{
-    margin: 180px 0 140px 0;
-    position: relative;
-    display: flex;
-    justify-content: center;
+main .about {
+  font-size: 50px;
+  margin-bottom: 28px;
 }
-.mouse-scroll a{
-    width: fit-content;
-    color: var(--text);
-    transition: all 0.2s ease;
-    text-decoration: none;
-    font-size: 36px;
-    display: flex;
-    justify-content: center;
+main p {
+  font-size: 14px;
+  margin-bottom: 30px;
 }
-.mouse-scroll a:hover{
-    color: var(--dark-green);
+main .links {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
-.mouse-scroll a::before{
-    content: '\f078';
-    font-family: "Font Awesome 6 Pro";
-    font-weight: 500;
-    position: absolute;
-    bottom: -22px;
-    font-size: 20px;
-    cursor: pointer;
+main .links a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--text);
+  border: 3px solid var(--gray);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
-.mouse-scroll a::after{
-    content: '\f078';
-    font-family: "Font Awesome 6 Pro";
-    font-weight: 500;
-    position: absolute;
-    bottom: -36px;
-    font-size: 20px;
-    cursor: pointer;
+main .links a:hover {
+  background: var(--dark-green);
+  border: 3px solid var(--dark-green);
+  color: var(--background);
 }
-.mouse-scroll i{
-    cursor: pointer;
+.auto-type {
+  color: var(--dark-green);
 }
-.project{
-    margin-bottom: 40px;
+main .buttons .button {
+  color: var(--text);
+  list-style: none;
 }
-section{
-    padding-top: 80px;
-    width: 100%;
-    height: 100%;
+.mouse-scroll {
+  margin: 180px 0 140px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
-section .title{
-    font-size: 40px;
-    text-align: center;
+.mouse-scroll a {
+  width: fit-content;
+  color: var(--text);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
 }
-section span{
-    color: var(--dark-green);
+.mouse-scroll a:hover {
+  color: var(--dark-green);
 }
-section .project{
-    margin-top: 60px;
+.mouse-scroll a::before {
+  content: "\f078";
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 500;
+  position: absolute;
+  bottom: -22px;
+  font-size: 20px;
+  cursor: pointer;
 }
-section .project h2{
-    font-size: 30px;
-    margin-bottom: 36px;
+.mouse-scroll a::after {
+  content: "\f078";
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 500;
+  position: absolute;
+  bottom: -36px;
+  font-size: 20px;
+  cursor: pointer;
 }
-.swiper-slide{
-    border-radius: 10px;
+.mouse-scroll i {
+  cursor: pointer;
 }
-.swiper-button{
-    width: 2rem;
-    height: 100%;
-    top: 22px;
-    color: var(--lime-green);
-    border: 2px solid var(--lime-green);
-    border-radius: 0.5rem;
-    transition: color 0.3s ease;
+.project {
+  margin-bottom: 40px;
 }
-.swiper-button-prev{
-    left: 0;
+section {
+  padding-top: 80px;
+  width: 100%;
+  height: 100%;
 }
-.swiper-button-next{
-    right: 0;
+section .title {
+  font-size: 40px;
+  text-align: center;
 }
-.swiper-button:hover{
-    color: var(--background);
-    background: var(--lime-green);
+section span {
+  color: var(--dark-green);
 }
-section .goto-button{
-    color: var(--text);
-    text-decoration: none;
-    font-size: 16px;
-    top: 0;
-    display: flex;
-    flex-direction: row;
-    transition: all 0.2s ease;
+section .project {
+  margin-top: 60px;
 }
-section .goto-button:hover{
-    color: var(--dark-green);
+section .project h2 {
+  font-size: 30px;
+  margin-bottom: 36px;
 }
-section .goto-button i{
-    margin-left: 10px;
+.swiper-slide {
+  border-radius: 10px;
+}
+.swiper-button {
+  width: 2rem;
+  height: 100%;
+  top: 22px;
+  color: var(--lime-green);
+  border: 2px solid var(--lime-green);
+  border-radius: 0.5rem;
+  transition: color 0.3s ease;
+}
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-button-next {
+  right: 0;
+}
+.swiper-button:hover {
+  color: var(--background);
+  background: var(--lime-green);
+}
+section .goto-button {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  transition: all 0.2s ease;
+}
+section .goto-button:hover {
+  color: var(--dark-green);
+}
+section .goto-button i {
+  margin-left: 10px;
 }
 .swiper-button::before,
-.swiper-button::after{
-    font-size: 35px;
+.swiper-button::after {
+  font-size: 35px;
+}
+.skills-section .skills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 60px;
+}
+.skills-section .skills .card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  width: 280px;
+  border-radius: 10px;
+  background-size: cover;
+  cursor: pointer;
+}
+.skills-section .skills .card .gradient-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    farthest-side at top center,
+    rgba(32, 37, 45, 0.9),
+    rgba(22, 29, 39, 0.9)
+  );
+}
+.skills-section .skills .card .skill-name {
+  position: absolute;
+  font-size: 32px;
+  top: 26px;
+  right: 36px;
+}
+.skills-section .skills .card .about {
+  width: 100%;
+  height: 100%;
+  transform: translateY(78%);
+  padding: 20px;
+  line-height: 22px;
+  color: var(--text);
+  transition: all 0.4s ease-in-out;
+}
+.skills-section .skills .card:hover > .about {
+  transition-delay: 100ms;
+  -o-transition-delay: 100ms;
+  -moz-transition-delay: 100ms;
+  -webkit-transition-delay: 100ms;
+  transform: translateY(33%);
+}
+.skills-section .skills .card .about h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+.contact form {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.contact form input,
+.contact form textarea {
+  width: 80%;
+  height: 46px;
+  font-size: 17px;
+  font-family: "Maven Pro", sans-serif;
+  border: 2px solid var(--dark-green);
+  color: var(--text);
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  transition: all 0.2s ease;
+  padding: 11px;
+}
+.contact form textarea {
+  resize: vertical;
+}
+::-webkit-input-placeholder {
+  color: var(--text);
+}
+.contact form input:hover,
+.contact form textarea:hover {
+  background: #383838;
+}
+.contact form .submit {
+  width: 80%;
+  height: 46px;
+  font-size: 20px;
+  font-family: "Maven Pro", sans-serif;
+  border: 2px solid var(--dark-green);
+  border-radius: 6px;
+  outline: none;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.contact form .submit:hover {
+  background: var(--dark-green);
+  color: var(--background);
+}
+.contact form .status {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.contact form .status.success {
+  color: var(--dark-green);
+}
+.contact form .status.success + .contact form input,
+.contact form textarea {
+  border-color: var(--dark-green);
+}
+.contact form .status.error {
+  color: var(--red);
+}
+.contact form .status.error + input {
+  border-color: var(--red);
+}
+.attribution {
+  position: sticky;
+  width: fit-content;
+  height: fit-content;
+  bottom: 30px;
+  left: 0;
+}
+.attribution .bar {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--dark-green);
 }
 @media screen and (max-width: 780px) {
-    main .frame{
-        display: none;
-    }
-    main .title{
-        font-size: 22px;
-    }
-    main .about{
-        font-size: 44px;
-    }
-    main p{
-        font-size: 14px;
-    }
-    main .links{
-        gap: 20px;
-    }
+  main .bar {
+    top: 152px;
+  }
+  main .frame {
+    display: none;
+  }
+  main .title {
+    font-size: 22px;
+  }
+  main .about {
+    font-size: 44px;
+  }
+  main p {
+    font-size: 14px;
+  }
+  main .links {
+    gap: 20px;
+  }
+  .skills-section .skills .card {
+    width: 240px;
+  }
+  .skills-section .skills .card .skill-name {
+    font-size: 28px;
+  }
+  .skills-section .skills .card .about {
+    font-size: 14px;
+    margin-bottom: 20px;
+    transform: translateY(76%);
+  }
+  .skills-section .skills .card .about h3 {
+    font-size: 24px;
+  }
+  .skills-section .skills .card:hover > .about {
+    transform: translateY(23%);
+  }
 }
 @media screen and (max-width: 520px) {
-    main .frame{
-        display: none;
-    }
-    main .title{
-        font-size: 18px;
-        margin-bottom: 20px;
-    }
-    main .about{
-        font-size: 30px;
-        margin-bottom: 28px;
-    }
-    main p{
-        font-size: 14px;
-        margin-bottom: 30px;
-    }
-    .pagination{
-        display: none;
-    }
-    main .links{
-        gap: 20px;
-    }
+  main .bar {
+    top: 149px;
+  }
+  main .frame {
+    display: none;
+  }
+  main .title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  main .about {
+    font-size: 30px;
+    margin-bottom: 28px;
+  }
+  main p {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  .pagination {
+    display: none;
+  }
+  main .links {
+    gap: 20px;
+  }
+  header .links a {
+    font-size: 22px;
+  }
+  .skills-section .skills .card {
+    width: 200px;
+  }
+  .skills-section .skills .card .skill-name {
+    font-size: 24px;
+  }
+  .skills-section .skills .card .about {
+    font-size: 10px;
+    margin-bottom: 20px;
+    transform: translateY(72%);
+  }
+  .skills-section .skills .card .about h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .skills-section .skills .card:hover > .about {
+    transform: translateY(25%);
+  }
 }

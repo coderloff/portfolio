@@ -1,5 +1,8 @@
 const paginationBullets = document.getElementsByClassName("bullet");
 const sections = document.querySelectorAll(".section");
+const menu = document.querySelector(".menu");
+const menuButton = document.querySelector(".menu-button");
+const closeButton = document.querySelector(".close-button");
 
 /* ========== Pagination ========== */
 /* function isInViewport(element) {
@@ -40,6 +43,12 @@ for (let i = 0; i < paginationBullets.length; i++) {
     }
   });
 }
+menuButton.addEventListener("click", ()=>{
+  menu.classList.add("active");
+})
+closeButton.addEventListener("click", ()=>{
+  menu.classList.remove("active");
+})
 
 /* ========== Slider ========== */
 var swiper = new Swiper(".slide-content", {
@@ -97,3 +106,43 @@ var verticalSwiper = new Swiper(".verticalSwiper", {
     },
   },
 });
+
+/* ========== Form ========== */
+window.addEventListener("DOMContentLoaded", function () {
+
+  var form = document.getElementById("form");
+  var status = document.getElementById("status");
+
+  function success() {
+    form.reset();
+    status.classList.add("success");
+    status.innerHTML = "Your form has been sent. Thanks!";
+  }
+
+  function error() {
+    status.classList.add("error");
+    status.innerHTML = "Your form has not been submitted. Please try again.";
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var data = new FormData(form);
+    ajax(form.method, form.action, data, success, error);
+  });
+});
+
+function ajax(method, url, data, success, error) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
+      success(xhr.response, xhr.responseType);
+    } else {
+      error(xhr.status, xhr.response, xhr.responseType);
+    }
+  };
+  xhr.send(data);
+}
+
