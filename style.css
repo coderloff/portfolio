@@ -57,12 +57,11 @@ header .menu {
   height: 100%;
   padding-right: 30px;
   background: var(--dark-green);
-  opacity: 0;
-  z-index: -1;
+  transform: translateX(100%);
   transition: all 0.2s ease;
 }
 header .menu.active {
-  opacity: 1;
+  transform: translateX(0);
   z-index: 3;
 }
 header .menu .close-button {
@@ -93,7 +92,7 @@ header .menu .links a {
   transition: all 0.2s ease-in;
 }
 header .menu .links a:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 header .menu .links a:hover {
   color: var(--text);
