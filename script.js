@@ -79,7 +79,7 @@ var swiper = new Swiper(".slide-content", {
   },
 });
 
-var verticalSwiper = new Swiper(".verticalSwiper", {
+var verticalSwiper = new Swiper(".vertical-swiper", {
   slidesPerView: 6,
   spaceBetween: 20,
   fade: "true",
@@ -104,6 +104,32 @@ var verticalSwiper = new Swiper(".verticalSwiper", {
     950: {
       slidesPerView: 6,
     },
+  },
+});
+
+var centeredSwiper = new Swiper(".centered-swiper", {
+  slidesPerView: 2,
+  spaceBetween: 40,
+  centeredSlides: true,
+  fade: "true",
+  grabCursor: "true",
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    650: {
+      slidesPerView: 2,
+    }
   },
 });
 
