@@ -43,12 +43,12 @@ for (let i = 0; i < paginationBullets.length; i++) {
     }
   });
 }
-menuButton.addEventListener("click", ()=>{
+menuButton.addEventListener("click", () => {
   menu.classList.add("active");
-})
-closeButton.addEventListener("click", ()=>{
+});
+closeButton.addEventListener("click", () => {
   menu.classList.remove("active");
-})
+});
 
 /* ========== Slider ========== */
 var swiper = new Swiper(".slide-content", {
@@ -107,7 +107,7 @@ var verticalSwiper = new Swiper(".vertical-swiper", {
   },
 });
 
-var centeredSwiper = new Swiper(".centered-swiper", {
+/* var centeredSwiper = new Swiper(".centered-swiper", {
   slidesPerView: 2,
   spaceBetween: 40,
   centeredSlides: true,
@@ -131,11 +131,10 @@ var centeredSwiper = new Swiper(".centered-swiper", {
       slidesPerView: 2,
     }
   },
-});
+}); */
 
 /* ========== Form ========== */
 window.addEventListener("DOMContentLoaded", function () {
-
   var form = document.getElementById("form");
   var status = document.getElementById("status");
 
@@ -171,4 +170,3 @@ function ajax(method, url, data, success, error) {
   };
   xhr.send(data);
 }
-

@@ -43,20 +43,26 @@
   <body>
     <header id="header">
       <h1 class="logo">MR</h1>
-      <button class="menu-button">
+      <button id="menuButton" class="menu-button">
         <i class="fa-regular fa-bars-staggered"></i>
       </button>
       <div class="menu">
-        <button class="close-button">
+        <button id="closeButton" class="close-button">
           <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="links">
-          <a href="#main">Home</a>
-          <a href="#gamedevelopment">Game Development</a>
-          <a href="#webdevelopment">Web Development</a>
-          <a href="#skills">My Skills</a>
-          <a href="#certificates">My Certificates</a>
-          <a href="#contact">Send Me A Message</a>
+          <a href="#main" aria-label="Go to Home page">Home</a>
+          <a href="#gamedevelopment" aria-label="Go to Game Projects"
+            >Game Development</a
+          >
+          <a href="#webdevelopment" aria-label="Go to Web Projects"
+            >Web Development</a
+          >
+          <a href="#skills" aria-label="Go to Skills">My Skills</a>
+          <a href="#certificates" aria-label="Go to Certificates"
+            >My Certificates</a
+          >
+          <a href="#contact" aria-label="Go to Contact">Send Me A Message</a>
         </div>
       </div>
     </header>
@@ -77,14 +83,22 @@
           Are you looking for a developer who works hard and has experience ?
         </p>
         <div class="links">
-          <a href="#gamedevelopment"><i class="fa-solid fa-gamepad"></i></a>
-          <a href="#webdevelopment"><i class="fa-solid fa-browser"></i></a>
+          <a href="#gamedevelopment" aria-label="Go to Game Projects"
+            ><i class="fa-solid fa-gamepad"></i
+          ></a>
+          <a href="#webdevelopment" aria-label="Go to Web Projects"
+            ><i class="fa-solid fa-browser"></i
+          ></a>
           <a
             href="https://www.linkedin.com/in/h%C3%BCseyn-ismay%C4%B1lov-61bb28256/"
             target="_blank"
+            aria-label="Go to my LinkedIn account"
             ><i class="fa-brands fa-linkedin-in"></i
           ></a>
-          <a href="https://github.com/coderloff" target="_blank"
+          <a
+            href="https://github.com/coderloff"
+            target="_blank"
+            aria-label="Go to my GitHub account"
             ><i class="fa-brands fa-github"></i
           ></a>
         </div>
@@ -92,7 +106,7 @@
       <span class="frame"></span>
     </main>
     <div class="mouse-scroll">
-      <a href="#gamedevelopment">
+      <a href="#gamedevelopment" aria-label="Scroll down to Game Projects">
         <i class="fa-light fa-computer-mouse-scrollwheel"></i>
       </a>
     </div>
@@ -515,7 +529,10 @@
         </div>
       </div>
       <div class="course project">
-        <a target="_blank" class="goto-button"
+        <a
+          href="https://codercourses.coderloff.vercel.app"
+          target="_blank"
+          class="goto-button"
           ><h2>Coder Courser | Education SaaS Project</h2>
         </a>
         <div class="swiper slide-content">
@@ -720,8 +737,7 @@
     <section class="skills-section section" id="skills">
       <h1 class="title">MY <span>SKILLS:</span></h1>
       <div class="skills project">
-        <div class="card" style="background-image: url(assets/Skills/HTML.png)">
-          <div class="gradient-cover"></div>
+        <div class="card" style="background-image: url(assets/Skills/HTML.jpg)">
           <h2 class="skill-name">HTML</h2>
           <div class="about">
             <h3>About</h3>
@@ -731,8 +747,7 @@
             </p>
           </div>
         </div>
-        <div class="card" style="background-image: url(assets/Skills/CSS.png)">
-          <div class="gradient-cover"></div>
+        <div class="card" style="background-image: url(assets/Skills/CSS.jpg)">
           <h2 class="skill-name">CSS</h2>
           <div class="about">
             <h3>About</h3>
@@ -742,8 +757,7 @@
             </p>
           </div>
         </div>
-        <div class="card" style="background-image: url(assets/Skills/JS.png)">
-          <div class="gradient-cover"></div>
+        <div class="card" style="background-image: url(assets/Skills/JS.jpg)">
           <h2 class="skill-name">JS</h2>
           <div class="about">
             <h3>About</h3>
@@ -753,8 +767,7 @@
             </p>
           </div>
         </div>
-        <div class="card" style="background-image: url(assets/Skills/TS.png)">
-          <div class="gradient-cover"></div>
+        <div class="card" style="background-image: url(assets/Skills/TS.jpg)">
           <h2 class="skill-name">TS</h2>
           <div class="about">
             <h3>About</h3>
@@ -766,9 +779,8 @@
         </div>
         <div
           class="card"
-          style="background-image: url(assets/Skills/React.png)"
+          style="background-image: url(assets/Skills/React.jpg)"
         >
-          <div class="gradient-cover"></div>
           <h2 class="skill-name">React</h2>
           <div class="about">
             <h3>About</h3>
@@ -780,9 +792,8 @@
         </div>
         <div
           class="card"
-          style="background-image: url(assets/Skills/NextJS.png)"
+          style="background-image: url(assets/Skills/NextJS.jpg)"
         >
-          <div class="gradient-cover"></div>
           <h2 class="skill-name">Next.js</h2>
           <div class="about">
             <h3>About</h3>
@@ -794,9 +805,8 @@
         </div>
         <div
           class="card"
-          style="background-image: url(assets/Skills/TailwindCSS.png)"
+          style="background-image: url(assets/Skills/TailwindCSS.jpg)"
         >
-          <div class="gradient-cover"></div>
           <h2 class="skill-name">Tailwind CSS</h2>
           <div class="about">
             <h3>About</h3>
@@ -808,9 +818,8 @@
         </div>
         <div
           class="card"
-          style="background-image: url(assets/Skills/C-sharp.png)"
+          style="background-image: url(assets/Skills/C-sharp.jpg)"
         >
-          <div class="gradient-cover"></div>
           <h2 class="skill-name">C#</h2>
           <div class="about">
             <h3>About</h3>
@@ -820,8 +829,7 @@
             </p>
           </div>
         </div>
-        <div class="card" style="background-image: url(assets/Skills/Cpp.png)">
-          <div class="gradient-cover"></div>
+        <div class="card" style="background-image: url(assets/Skills/Cpp.jpg)">
           <h2 class="skill-name">C++</h2>
           <div class="about">
             <h3>About</h3>
@@ -836,7 +844,7 @@
     <section class="certificates-section section" id="certificates">
       <h1 class="title">MY <span>CERTIFICATES:</span></h1>
       <div class="certificates project">
-        <div class="swiper centered-swiper">
+        <div class="swiper slide-content">
           <div class="swiper-wrapper slide-container">
             <img
               src="assets/Certificates/GGJ'23 - GamePons.png"
@@ -875,7 +883,7 @@
     </section>
 
     <div class="attribution">
-      <a>© 2023 Coderloff | All Rights Reserved</a>
+      <a href="/">© 2023 Coderloff | All Rights Reserved</a>
       <span class="bar"></span>
     </div>
 

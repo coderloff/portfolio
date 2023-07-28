@@ -326,15 +326,8 @@ section .goto-button i {
   background-size: cover;
   cursor: pointer;
 }
-.skills-section .skills .card .gradient-cover {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    farthest-side at top center,
-    rgba(32, 37, 45, 0.9),
-    rgba(22, 29, 39, 0.9)
-  );
+.skills-section .skills .card::-webkit-scrollbar {
+  display: none;
 }
 .skills-section .skills .card .skill-name {
   position: absolute;
@@ -435,6 +428,11 @@ section .goto-button i {
   height: fit-content;
   bottom: 30px;
   left: 0;
+  z-index: 10;
+}
+.attribution a{
+  text-decoration: none;
+  color:var(--text);
 }
 .attribution .bar {
   position: absolute;
@@ -510,13 +508,14 @@ section .goto-button i {
     font-size: 22px;
   }
   .skills-section .skills .card {
+    overflow: scroll;
     width: 200px;
   }
   .skills-section .skills .card .skill-name {
     font-size: 24px;
   }
   .skills-section .skills .card .about {
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 20px;
     transform: translateY(72%);
   }
