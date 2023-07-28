@@ -30,6 +30,10 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background: var(--dark-green);
 }
+a {
+  text-decoration: none;
+  color: var(--text);
+}
 header {
   display: flex;
   align-items: center;
@@ -87,7 +91,6 @@ header .menu .links {
 }
 header .menu .links a {
   font-size: 26px;
-  text-decoration: none;
   color: var(--background);
   transition: all 0.2s ease-in;
 }
@@ -189,8 +192,6 @@ main .links a {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  color: var(--text);
   border: 3px solid var(--gray);
   border-radius: 50%;
   cursor: pointer;
@@ -216,9 +217,7 @@ main .buttons .button {
 }
 .mouse-scroll a {
   width: fit-content;
-  color: var(--text);
   transition: all 0.2s ease;
-  text-decoration: none;
   font-size: 36px;
   display: flex;
   justify-content: center;
@@ -429,10 +428,6 @@ section .goto-button i {
   bottom: 30px;
   left: 0;
   z-index: 10;
-}
-.attribution a{
-  text-decoration: none;
-  color:var(--text);
 }
 .attribution .bar {
   position: absolute;
