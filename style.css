@@ -181,12 +181,12 @@ main p {
   font-size: 14px;
   margin-bottom: 30px;
 }
-main .links {
+.socials {
   display: flex;
   flex-direction: row;
   gap: 30px;
 }
-main .links a {
+.socials a {
   width: 50px;
   height: 50px;
   display: flex;
@@ -197,7 +197,7 @@ main .links a {
   cursor: pointer;
   transition: all 0.2s ease;
 }
-main .links a:hover {
+.socials a:hover {
   background: var(--dark-green);
   border: 3px solid var(--dark-green);
   color: var(--background);
@@ -420,6 +420,12 @@ section .goto-button i {
 }
 .contact form .status.error + input {
   border-color: var(--red);
+}
+.contact .bottom{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .attribution {
   position: sticky;
